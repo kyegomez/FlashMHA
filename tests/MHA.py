@@ -1,4 +1,5 @@
 import timeit
+import torch
 import matplotlib.pyplot as plt
 from FlashMHA import FlashMHA
 
