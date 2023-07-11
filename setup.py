@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
   name = 'FlashMHA',
   packages = find_packages(exclude=[]),
-  version = '0.0.2',
+  version = '0.0.4',
   license='MIT',
   description = 'FlashMHA - Pytorch',
   author = 'Kye Gomez',
