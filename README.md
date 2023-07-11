@@ -20,10 +20,10 @@ from FlashMHA import FlashAttention
 or
 
 ```python
-from FlashMHA import FlashMHAAttention
+from FlashMHA import FlashMHA
 ```
 
-Now you can create an instance of the FlashAttention class or the FlashMHAAttention class and use it in your code accordingly.
+Now you can create an instance of the FlashAttention class or the FlashMHA class and use it in your code accordingly.
 
 Example usage:
 
@@ -40,18 +40,18 @@ output = flash_attention(query, key, value)
 
 ```python
 # Import the necessary module
-from FlashMHA import FlashMHAAttention
+from FlashMHA import FlashMHA
 
-# Create an instance of FlashMHAAttention
-flash_mha_attention = FlashMHAAttention(causal=False, dropout=0.0)
+# Create an instance of FlashMHA
+flash_mha_attention = FlashMHA(causal=False, dropout=0.0)
 
-# Use the FlashMHAAttention instance in your code
+# Use the FlashMHA instance in your code
 output = flash_mha_attention(query, key, value)
 ```
 
 Make sure to replace `query`, `key`, and `value` with your own input tensors.
 
-Now you can utilize the FlashAttention or FlashMHAAttention module in your code by following the provided examples.
+Now you can utilize the FlashAttention or FlashMHA module in your code by following the provided examples.
 In this example, `query`, `key`, and `value` are input tensors with shape `(batch_size, sequence_length, embed_dim)`. The FlashMHA model applies the multi-head attention mechanism to these inputs and returns the output tensor.
 
 ## Documentation
