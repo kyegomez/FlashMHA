@@ -1,4 +1,4 @@
-FlashMHA
+# FlashMHA
 FlashMHA is a PyTorch implementation of the Flash Multi-Head Attention mechanism. It is designed to be efficient and flexible, allowing for both causal and non-causal attention. The implementation also includes support for the Flash Attention mechanism, which is a highly efficient attention mechanism designed for GPUs.
 
 ## Installation
@@ -32,7 +32,9 @@ output = flash_mha(query, key, value)
 In this example, `query`, `key`, and `value` are input tensors with shape `(batch_size, sequence_length, embed_dim)`. The FlashMHA model applies the multi-head attention mechanism to these inputs and returns the output tensor.
 
 ## Documentation
-# FlashAttention
+
+
+### `FlashAttention`
 
 FlashAttention is a PyTorch module that implements the Flash Attention mechanism, a highly efficient attention mechanism designed for GPUs. It provides a fast and flexible solution for attention computations in deep learning models.
 
@@ -54,7 +56,7 @@ FlashAttention is a PyTorch module that implements the Flash Attention mechanism
 
 - `output` (Tensor): The output tensor of shape (batch_size, query_length, embed_dim).
 
-## FlashMHA
+## `FlashMHA`
 
 FlashMHA is a PyTorch module that implements the Flash Multi-Head Attention mechanism, which combines multiple FlashAttention layers. It is designed to be efficient and flexible, allowing for both causal and non-causal attention.
 
