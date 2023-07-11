@@ -2,33 +2,56 @@
 FlashMHA is a PyTorch implementation of the Flash Multi-Head Attention mechanism. It is designed to be efficient and flexible, allowing for both causal and non-causal attention. The implementation also includes support for the Flash Attention mechanism, which is a highly efficient attention mechanism designed for GPUs.
 
 ## Installation
-You can install the FlashMHA library by cloning the GitHub repository and installing the required dependencies using `pip`:
 
-```bash
-git clone https://github.com/kyegomez/FlashMHA.git
-cd FlashMHA
-pip install -r requirements.txt
+You can install FlashMHA using pip:
+
+```shell
+pip install FlashMHA
 ```
 
 ## Usage
-Here is a basic example of how to use the FlashMHA module:
+
+After installing FlashMHA, you can import the FlashAttention module for usage in your code:
 
 ```python
-import torch
-from flash_mha import FlashMHA
-
-# Initialize the model
-flash_mha = FlashMHA(embed_dim=512, num_heads=8, bias=True, batch_first=True, dropout=0.0, causal=False)
-
-# Create input tensors
-query = torch.randn(10, 32, 512)
-key = torch.randn(10, 32, 512)
-value = torch.randn(10, 32, 512)
-
-# Forward pass
-output = flash_mha(query, key, value)
+from FlashMHA import FlashAttention
 ```
 
+or
+
+```python
+from FlashMHA import FlashMHAAttention
+```
+
+Now you can create an instance of the FlashAttention class or the FlashMHAAttention class and use it in your code accordingly.
+
+Example usage:
+
+```python
+# Import the necessary module
+from FlashMHA import FlashAttention
+
+# Create an instance of FlashAttention
+flash_attention = FlashAttention(causal=False, dropout=0.0)
+
+# Use the FlashAttention instance in your code
+output = flash_attention(query, key, value)
+```
+
+```python
+# Import the necessary module
+from FlashMHA import FlashMHAAttention
+
+# Create an instance of FlashMHAAttention
+flash_mha_attention = FlashMHAAttention(causal=False, dropout=0.0)
+
+# Use the FlashMHAAttention instance in your code
+output = flash_mha_attention(query, key, value)
+```
+
+Make sure to replace `query`, `key`, and `value` with your own input tensors.
+
+Now you can utilize the FlashAttention or FlashMHAAttention module in your code by following the provided examples.
 In this example, `query`, `key`, and `value` are input tensors with shape `(batch_size, sequence_length, embed_dim)`. The FlashMHA model applies the multi-head attention mechanism to these inputs and returns the output tensor.
 
 ## Documentation
