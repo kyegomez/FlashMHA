@@ -32,12 +32,12 @@ class FlashMHA(nn.Module):
         if self.parallel:
             self.Wqkv = nn.DataParallel(nn.Linear(embed_dim, 3 * embed_dim, bias=bias, **factory_kwargs))
             self.inner_attn = nn.DataParallel(FlashAttention(dropout=dropout, causal=causal))
-            self.out_proj = nn.DataParallel(nn.Linear(embed_dim, embed_dim, bias=bias, factory_kwargs))
+            self.out_proj = nn.DataParallel(nn.Linear(embed_dim, embed_dim, bias=bias, **factory_kwargs))
         else:
             self.Wqkv = nn.Linear(embed_dim, 3 * embed_dim, bias=bias, **factory_kwargs)
             self.inner_attn = FlashAttention(dropout=dropout, causal=causal)
             self.out_proj = nn.Linear(embed_dim, embed_dim, bias=bias, **factory_kwargs)
-            
+
     def forward(self, query, key, value):
         qkv = self.Wqkv(query)
         q, k, v = rearrange(qkv, 'b s (three h d) -> three b s h d', three=3, h=self.num_heads, d=self.head_dim).unbind(dim=0)
