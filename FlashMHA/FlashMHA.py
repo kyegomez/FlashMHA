@@ -40,6 +40,6 @@ class FlashMHA(nn.Module):
 
     def forward(self, query, key, value):
         qkv = self.Wqkv(query)
-        q, k, v = rearrange(qkv, 'b s (three h d) -> three b s h d', three=3, h=self.num_heads, d=self.head_dim).unbind(dim=0)
+        q, k, v = rearrange(qkv, 'b s (three h d) -> three b h s d', three=3, h=self.num_heads, d=self.head_dim).unbind(dim=0)
         context = self.inner_attn(q, k, v)
-        return self.out_proj(rearrange(context, 'b s h d -> b s (h d)'))
+        return self.out_proj(rearrange(context, 'b h s d -> b s (h d)'))
